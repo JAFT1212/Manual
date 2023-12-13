@@ -1,0 +1,53 @@
+let Usuario1=prompt("Ingrese su nombre de usuario: ")
+    
+let Password1=prompt("Crea una contraseña para su usuario : ")
+  
+
+const intentosMax=3;
+
+let intentosUser=0;
+while(intentosUser<intentosMax){
+    const Usuario=prompt("Ingresa su usuario : ");
+    const Password=prompt("Ingresa tu Password : ");
+   
+    if(Usuario1===Usuario && Password1===Password){
+        console.log("¡Bienvenido " +Usuario+ " al Cajero Virtual!");
+        
+      const total=0   
+    
+      
+     let opcion=prompt("Selecciona la opcion para calcular: \n\t1= Consultar saldo. \n\t2= Depositar \n\t3= Sacar Dinero \nIngrese: ");
+     
+        if(opcion==2){
+            let dar=prompt("Inserte cantidad que quiere depositar Q")
+            dar=parseFloat(dar)
+            
+            let total=total+dar
+            
+        } else if(opcion==1) {
+            console.log("El saldo acutal de su cuenta es de Q"+total)
+
+        } else if(opcion==3) {
+            let sacar=prompt("Ingrese la cantidad que desea sacar Q")
+            sacar=parseFloat(sacar)
+                if(sacar<=total) {
+                    dinero=total-sacar
+                    console.log("El dinero ya ha sido retirado")
+                } else {
+                    console.log("Dinero Insuficiente")
+                }
+                
+        }    
+
+        break;
+        
+
+    }else{
+        console.log("Error, Intente de nuevo. \nIntentos restantes: "+(intentosMax-intentosUser-1));
+        intentosUser++;
+    }
+}
+
+if (intentosUser===intentosMax){
+    console.log("Limite de intentos completos. Ingreso Bloqueado.");
+}
